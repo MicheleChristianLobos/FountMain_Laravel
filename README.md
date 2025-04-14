@@ -7,3 +7,9 @@ Michele Christian Lobos & Nicola Schianchi
 # Dove puoi maneggiare le API?
 Nella cartella routes di FountMain troverai il file api.php, dove potrai configurare le API.
 
+# Cosa viene utilizzato?
+- Composer
+- Laravel
+- Apache
+- MySQL
+
