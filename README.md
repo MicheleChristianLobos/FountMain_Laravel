@@ -12,4 +12,7 @@ Nella cartella routes di FountMain troverai il file api.php, dove potrai configu
 - Laravel
 - Apache
 - MySQL
+- Leaflet (API per la mappa)
 
+# Link di informazione
+- Icone degli elementi della mappa (https://wiki.openstreetmap.org/wiki/IT:Key:amenity?uselang=it)
