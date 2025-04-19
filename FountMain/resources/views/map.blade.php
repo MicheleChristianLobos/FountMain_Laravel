@@ -23,44 +23,53 @@
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    // Ottenere la posizione dell'utente
     navigator.geolocation.getCurrentPosition(function(position) {
-        var lat = position.coords.latitude;
-        var lon = position.coords.longitude;
+    var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
 
-        var raggioKm = 1; // Raggio di 1 km
+    var raggioKm = 8; // Modifica il raggio di ricerca
 
-        // Calcola l'area usando un bounding box (approssimazione)
-        var latMin = lat - (raggioKm / 111); // 1 grado lat ≈ 111 km
-        var latMax = lat + (raggioKm / 111);
-        var lonMin = lon - (raggioKm / (111 * Math.cos(lat * Math.PI / 180)));
-        var lonMax = lon + (raggioKm / (111 * Math.cos(lat * Math.PI / 180)));
+    var latMin = lat - (raggioKm / 111);
+    var latMax = lat + (raggioKm / 111);
+    var lonMin = lon - (raggioKm / (111 * Math.cos(lat * Math.PI / 180)));
+    var lonMax = lon + (raggioKm / (111 * Math.cos(lat * Math.PI / 180)));
 
-        // Crea la query Overpass dinamica con il bounding box calcolato
-        var query = `
-            [out:json];
-            node
-            ["amenity"="drinking_water"]
-            (${latMin},${lonMin},${latMax},${lonMax});
-            out;
-        `;
+    // Definisci l'icona personalizzata
+    var userIcon = L.icon({
+        iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/ec/RedDot.svg',
+        iconSize: [15, 15],
+        iconAnchor: [7, 7]
+    });
 
-        // Esegui la richiesta API Overpass
-        var url = "https://overpass-api.de/api/interpreter?data=" + encodeURIComponent(query);
+    // Aggiungi il marker dell'utente sulla mappa (DENTRO la funzione)
+    L.marker([lat, lon], { icon: userIcon }).addTo(map)
+        .bindPopup("<b>La tua posizione</b>").openPopup();
 
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                data.elements.forEach(el => {
-                    if (el.lat && el.lon) {
-                        var marker = L.marker([el.lat, el.lon]).addTo(map)
-                            .bindPopup(`<b>Fontana trovata!</b><br>Posizione: ${el.lat}, ${el.lon}`);
-                    }
-                });
-            })
-            .catch(error => console.error("Errore nel caricamento dei dati:", error));
-        });
-        
+    // Crea la query Overpass dinamica con il bounding box calcolato
+    var query = `
+        [out:json];
+        node
+        ["amenity"="drinking_water"]
+        (${latMin},${lonMin},${latMax},${lonMax});
+        out;
+    `;
+
+    var url = "https://overpass-api.de/api/interpreter?data=" + encodeURIComponent(query);
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            data.elements.forEach(el => {
+                if (el.lat && el.lon) {
+                    var marker = L.marker([el.lat, el.lon]).addTo(map)
+                        .bindPopup(`<b>Fontana trovata!</b><br>Posizione: ${el.lat}, ${el.lon}`);
+                }
+            });
+        })
+        .catch(error => console.error("Errore nel caricamento dei dati:", error));
+    });
+
+
     </script>
 
 </body>
