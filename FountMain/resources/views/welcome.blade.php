@@ -13,6 +13,16 @@
             width: 60px; /* Aumenta la dimensione */
             height: 60px;
         }
+        .centered {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .centered img {
+            margin-bottom: 0;
+            height: 220px;
+            width: 480px;
+        }
     </style>
 </head>
 <body>
@@ -27,24 +37,22 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link disabled" aria-current="page" href="#">Home page</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <!--Il target="_blank" permette di aprire una nuova finestra con il link indicato e non sostituire la propria pagina con un'altra-->
+            <a class="nav-link" href="https://github.com/MicheleChristianLobos/FountMain_Laravel.git" target="_blank">GitHub</a>
             </li>
             <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
+            <a class="nav-link dropdown-toggle" href="Altre pagine" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Other pages
             </a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="./map.blade.php">Map</a></li>
+                <li><a class="dropdown-item" href="./registration.blade.php">Registration</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item" href="#">More info</a></li>
             </ul>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
             </li>
         </ul>
         </div>
@@ -52,7 +60,10 @@
     </nav>
 
     <!--Titolo-->
-    <h1 style="text-align: center;">Benvenuto in FountMain :></h1>
+    <!--<h1 style="text-align: center;">Welcome</h1>-->
+    <div class="centered">
+        <img src="../img/FountMainLogo.png" ></img>
+    </div>
 
     <div class="container mt-4">
     <div class="row justify-content-center"> <!-- Centra le carte -->
@@ -130,7 +141,7 @@
 
     // Aggiungi il marker dell'utente sulla mappa (DENTRO la funzione)
     L.marker([lat, lon], { icon: userIcon }).addTo(map)
-        .bindPopup("<b>La tua posizione</b>").openPopup();
+        .bindPopup("<b>You are here</b>").openPopup();
 
     // Crea la query Overpass dinamica con il bounding box calcolato
     var query = `
@@ -149,7 +160,7 @@
             data.elements.forEach(el => {
                 if (el.lat && el.lon) {
                     var marker = L.marker([el.lat, el.lon]).addTo(map)
-                        .bindPopup(`<b>Fontana nelle coordinate:<br>${el.lat}(Latitudine)<br> ${el.lon}(Longitudine)`);
+                        .bindPopup(`<b>Coords fountain:<br>Lat ${el.lat}<br>Lon ${el.lon}`);
                 }
             });
         })
