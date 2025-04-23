@@ -12,45 +12,43 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding-top: 20px;
+            padding-top: 60px;
         }
     </style>
 </head>
 <body>
 
     <!--NavBar-->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="./welcome.blade.php">FountMain</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
-            </a>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-            </li>
-        </ul>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./welcome.blade.php" style="color:gray">FountMain</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-current="page" href="#">Interactive map</a>
+                    </li>
+                    <li class="nav-item">
+                        <!--Il target="_blank" permette di aprire una nuova finestra con il link indicato e non sostituire la propria pagina con un'altra-->
+                        <a class="nav-link" href="https://github.com/MicheleChristianLobos/FountMain_Laravel.git" target="_blank">GitHub</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="Altre pagine" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Other pages
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="./registration.blade.php">Registration</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">More info</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
     </nav>
+
 
     <!--Titolo-->
     <h1 style="text-align: center;">The FountMain Map</h1>
@@ -91,7 +89,7 @@
 
         // Aggiungi il marker dell'utente sulla mappa (DENTRO la funzione)
         L.marker([lat, lon], { icon: userIcon }).addTo(map)
-            .bindPopup("<b>La tua posizione</b>").openPopup();
+            .bindPopup("<b>You are here</b>").openPopup();
 
         // Crea la query Overpass dinamica con il bounding box calcolato
         var query = `
@@ -110,7 +108,7 @@
                 data.elements.forEach(el => {
                     if (el.lat && el.lon) {
                         var marker = L.marker([el.lat, el.lon]).addTo(map)
-                            .bindPopup(`<b>Fontana nelle coordinate:<br>${el.lat}(Latitudine)<br> ${el.lon}(Longitudine)`);
+                            .bindPopup(`<b>Fountain coords:<br>Lat ${el.lat}<br>Lon ${el.lon}`);
                     }
                 });
             })

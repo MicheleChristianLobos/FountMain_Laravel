@@ -43,9 +43,37 @@
             color: #cccccc; /* Testo grigio chiaro, come nella navbar */
         }
 
+
+        /*Tema della pagina*/
+        :root {
+            --bg-color: url('../img/sfondo2.png'); /* Default: dark theme */
+            --text-color: #cccccc; /* Testo chiaro */
+        }
+
+        .light-mode {
+            --bg-color: white; /* Sfondo bianco */
+            --text-color: black; /* Testo scuro */
+        }
+
+        body {
+            background: var(--bg-color);
+            background-size: cover;
+            color: var(--text-color);
+            transition: background 0.3s, color 0.3s; /* Effetto di transizione */
+        }
+
+        .navbar, .card {
+            background-color: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+            color: var(--text-color);
+        }
+ 
+
+
     </style>
 </head>
-<body style="background-image: url('../img/sfondo2.png');">
+    <!--style="background-image: url('../img/sfondo2.png');"-->
+<body>
 
     <!--NavBar-->
     <nav class="navbar navbar-expand-lg">
@@ -76,13 +104,18 @@
                     </li>
                 </ul>
             </div>
+
+            <!--Pulsante di cambio tema-->
+            <div>
+                <button id="theme-toggle" type="button" class="btn btn-outline-secondary">Light Theme</button>
+            </div>
         </div>
     </nav>
 
     <!--Titolo-->
     <!--<h1 style="text-align: center;">Welcome</h1>-->
     <div class="centered">
-        <img src="../img/FountMainLogo2.png" ></img>
+        <img id="logo" src="../img/FountMainLogo2.png" alt="Logo">
     </div>
 
     <div class="container mt-4">
@@ -124,9 +157,6 @@
         </div>
     </div>
 </div>
-
-
-    <!--<div id="map"></div>-->
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
@@ -180,13 +210,45 @@
             data.elements.forEach(el => {
                 if (el.lat && el.lon) {
                     var marker = L.marker([el.lat, el.lon]).addTo(map)
-                        .bindPopup(`<b>Coords fountain:<br>Lat ${el.lat}<br>Lon ${el.lon}`);
+                        .bindPopup(`<b>Fountain coords:<br>Lat ${el.lat}<br>Lon ${el.lon}`);
                 }
             });
         })
         .catch(error => console.error("Errore nel caricamento dei dati:", error));
     });
 
+
+    </script>
+
+
+
+    <!--Gestione lato Javascript del tema della pagina-->
+    <script>
+        const toggleButton = document.getElementById("theme-toggle");
+        const body = document.body;
+        const logo = document.getElementById("logo");
+
+        // Controlla il tema salvato e il logo corrispondente
+        if (localStorage.getItem("theme") === "light") {
+            body.classList.add("light-mode");
+            toggleButton.textContent = "Dark Theme";
+            logo.src = "../img/FountMainLogo.png"; // Logo chiaro
+        }
+
+        // Cambia tema e aggiorna il logo
+        toggleButton.addEventListener("click", function() {
+            body.classList.toggle("light-mode");
+
+            if (body.classList.contains("light-mode")) {
+                localStorage.setItem("theme", "light");
+                toggleButton.textContent = "Dark Theme";
+                logo.src = "../img/FountMainLogo.png"; // Cambia al logo chiaro
+            } else {
+                localStorage.setItem("theme", "dark");
+                toggleButton.textContent = "Light Theme";
+                logo.src = "../img/FountMainLogo2.png"; // Cambia al logo scuro
+            }
+        });
 
     </script>
 
