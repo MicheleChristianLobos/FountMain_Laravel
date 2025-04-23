@@ -6,71 +6,8 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
-    <style>
-        #map { height: 300px; }
-        .carousel-control-prev-icon,
-        .carousel-control-next-icon {
-            width: 60px; /* Aumenta la dimensione */
-            height: 60px;
-        }
-        .centered {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .centered img {
-            margin-bottom: 0;
-            height: 220px;
-            width: 480px;
-        }
-        .navbar::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-            z-index: -1;
-            backdrop-filter: blur(5px);
-        }
-        .navbar .navbar-brand, 
-        .navbar .nav-link {
-            color: #cccccc !important;
-        }
-        .card {
-            background-color: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(5px);
-            border: none; /* Rimuove il bordo */
-            color: #cccccc; /* Testo grigio chiaro, come nella navbar */
-        }
-
-
-        /*Tema della pagina*/
-        :root {
-            --bg-color: url('../img/sfondo2.png'); /* Default: dark theme */
-            --text-color: #cccccc; /* Testo chiaro */
-        }
-
-        .light-mode {
-            --bg-color: white; /* Sfondo bianco */
-            --text-color: black; /* Testo scuro */
-        }
-
-        body {
-            background: var(--bg-color);
-            background-size: cover;
-            color: var(--text-color);
-            transition: background 0.3s, color 0.3s; /* Effetto di transizione */
-        }
-
-        .navbar, .card {
-            background-color: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(5px);
-            color: var(--text-color);
-        }
- 
-
-
-    </style>
+    <!--Per il tema della pagina (e non solo)-->
+    <link rel="stylesheet" href="../css/theme.css" >
 </head>
     <!--style="background-image: url('../img/sfondo2.png');"-->
 <body>
@@ -159,98 +96,9 @@
 </div>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script>
-
-    // Inizializza la mappa
-    var map = L.map('map').setView([44.8015, 10.3279], 13); 
-
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; <a href="https://carto.com/">CartoDB</a>',
-    }).addTo(map);
-
-
-    navigator.geolocation.getCurrentPosition(function(position) {
-    var lat = position.coords.latitude;
-    var lon = position.coords.longitude;
-
-    var raggioKm = 8; // Modifica il raggio di ricerca
-
-    var latMin = lat - (raggioKm / 111);
-    var latMax = lat + (raggioKm / 111);
-    var lonMin = lon - (raggioKm / (111 * Math.cos(lat * Math.PI / 180)));
-    var lonMax = lon + (raggioKm / (111 * Math.cos(lat * Math.PI / 180)));
-
-    map.setView([lat, lon], 13);
-
-    // Definisci l'icona personalizzata
-    var userIcon = L.icon({
-        iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/ec/RedDot.svg',
-        iconSize: [15, 15],
-        iconAnchor: [7, 7]
-    });
-
-    // Aggiungi il marker dell'utente sulla mappa (DENTRO la funzione)
-    L.marker([lat, lon], { icon: userIcon }).addTo(map)
-        .bindPopup("<b>You are here</b>").openPopup();
-
-    // Crea la query Overpass dinamica con il bounding box calcolato
-    var query = `
-        [out:json];
-        node
-        ["amenity"="drinking_water"]
-        (${latMin},${lonMin},${latMax},${lonMax});
-        out;
-    `;
-
-    var url = "https://overpass-api.de/api/interpreter?data=" + encodeURIComponent(query);
-
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            data.elements.forEach(el => {
-                if (el.lat && el.lon) {
-                    var marker = L.marker([el.lat, el.lon]).addTo(map)
-                        .bindPopup(`<b>Fountain coords:<br>Lat ${el.lat}<br>Lon ${el.lon}`);
-                }
-            });
-        })
-        .catch(error => console.error("Errore nel caricamento dei dati:", error));
-    });
-
-
-    </script>
-
-
-
-    <!--Gestione lato Javascript del tema della pagina-->
-    <script>
-        const toggleButton = document.getElementById("theme-toggle");
-        const body = document.body;
-        const logo = document.getElementById("logo");
-
-        // Controlla il tema salvato e il logo corrispondente
-        if (localStorage.getItem("theme") === "light") {
-            body.classList.add("light-mode");
-            toggleButton.textContent = "Dark Theme";
-            logo.src = "../img/FountMainLogo.png"; // Logo chiaro
-        }
-
-        // Cambia tema e aggiorna il logo
-        toggleButton.addEventListener("click", function() {
-            body.classList.toggle("light-mode");
-
-            if (body.classList.contains("light-mode")) {
-                localStorage.setItem("theme", "light");
-                toggleButton.textContent = "Dark Theme";
-                logo.src = "../img/FountMainLogo.png"; // Cambia al logo chiaro
-            } else {
-                localStorage.setItem("theme", "dark");
-                toggleButton.textContent = "Light Theme";
-                logo.src = "../img/FountMainLogo2.png"; // Cambia al logo scuro
-            }
-        });
-
-    </script>
-
+    
+    <!--Importazione script per la mappa e per il tema della pagina (+ qualche altro punto grafico a parte in theme.js)-->
+    <script src="../js/map.js"></script>
+    <script src="../js/theme.js"></script>
 </body>
 </html>

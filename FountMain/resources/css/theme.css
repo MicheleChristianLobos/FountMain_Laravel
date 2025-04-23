@@ -1,0 +1,62 @@
+
+#map { height: 300px; }
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 60px; /* Aumenta la dimensione */
+    height: 60px;
+}
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.centered img {
+    margin-bottom: 0;
+    height: 220px;
+    width: 480px;
+}
+
+.navbar::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: -1;
+    backdrop-filter: blur(5px);
+}
+.navbar .navbar-brand, 
+.navbar .nav-link {
+    color: #cccccc !important;
+}
+.card {
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    border: none; /* Rimuove il bordo */
+    color: #cccccc; /* Testo grigio chiaro, come nella navbar */
+}
+
+/*Parametri tema scuro e chiaro*/
+
+:root {
+    --bg-color: url('../img/sfondo2.png'); /* Default: dark theme */
+    --text-color: #cccccc; /* Testo chiaro */
+}
+
+.light-mode {
+    --bg-color: white; /* Sfondo bianco */
+    --text-color: black; /* Testo scuro */
+}
+
+body {
+    background: var(--bg-color);
+    background-size: cover;
+    color: var(--text-color);
+    transition: background 0.3s, color 0.3s; /* Effetto di transizione */
+}
+
+.navbar, .card {
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    color: var(--text-color);
+}
