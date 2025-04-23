@@ -17,11 +17,11 @@ toggleButton.addEventListener("click", function() {
 
     if (body.classList.contains("light-mode")) {
         localStorage.setItem("theme", "light");
-        toggleButton.textContent = "Dark Theme";
-        logo.src = "../img/FountMainLogo.png"; // Cambia al logo chiaro
+        toggleButton.textContent = "Dark Theme";    //Testo del pulsante in "Dark Theme"
+        logo.src = "../img/FountMainLogo.png"; //Cambiamento del logo in stile chiaro
     } else {
         localStorage.setItem("theme", "dark");
-        toggleButton.textContent = "Light Theme";
-        logo.src = "../img/FountMainLogo2.png"; // Cambia al logo scuro
+        toggleButton.textContent = "Light Theme";   //Testo del pulsante in "Light Theme"
+        logo.src = "../img/FountMainLogo2.png"; //Cambiamento del logo in stile scuro
     }
 });
