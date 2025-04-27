@@ -44,7 +44,7 @@
 }
 
 .light-mode {
-    --bg-color: white; /* Sfondo bianco */
+    --bg-color: url('../img/sfondo3.png'); /* Sfondo bianco */
     --text-color: black; /* Testo scuro */
 }
 
