@@ -75,4 +75,38 @@
     <script src="../js/theme.js"></script>
 
 </body>
+
+
+
+<!--Footer-->
+<footer class="row row-cols-1 row-cols-sm-2 row-cols-md-4 py-2 border-top">
+    <div class="col mb-3">
+        <a href="/" class="d-flex align-items-center mb-3 text-decoration-none">
+            <svg class="bi me-2" width="40" height="32" aria-hidden="true">
+                <use xlink:href="#bootstrap"></use>
+            </svg>
+        </a>
+        <p class="text-body-secondary">FountMain© 2025</p>
+    </div>
+
+    <div class="col mb-3">
+        <h5>Navigation</h5>
+        <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Home</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Features</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Pricing</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">FAQs</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">About</a></li>
+        </ul>
+    </div>
+
+    <div class="col mb-3">
+        <h5>Resources</h5>
+        <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="https://github.com/MicheleChristianLobos/FountMain_Laravel.git" class="nav-link p-0" target="_blank">GitHub</a></li>
+            <li class="nav-item mb-2"><a href="./map.blade.php" class="nav-link p-0">Map</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">More info</a></li>
+        </ul>
+    </div>
+</footer>
 </html>
