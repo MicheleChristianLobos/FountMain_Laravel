@@ -81,7 +81,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Welcome</h5>
                     <p class="card-text">You can register if you want. This way you can save the fountains you want and comment on them.</p>
-                    <a href="#" class="btn btn-primary">Sign in</a>
+                    <a href="./registration.blade.php" class="btn btn-primary">Sign in</a>
                 </div>
             </div>
         </div>
