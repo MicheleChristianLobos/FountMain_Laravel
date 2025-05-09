@@ -39,12 +39,12 @@
 /*Parametri tema scuro e chiaro*/
 
 :root {
-    --bg-color: url('../img/sfondo2.png'); /* Default: dark theme */
+    --bg-color: url('../img/sfondo2.bmp'); /* Default: dark theme */
     --text-color: #cccccc; /* Testo chiaro */
 }
 
 .light-mode {
-    --bg-color: url('../img/sfondo3.png'); /* Sfondo bianco */
+    --bg-color: url('../img/sfondo3.bmp'); /* Sfondo bianco */
     --text-color: black; /* Testo scuro */
 }
 
@@ -52,7 +52,7 @@ body {
     background: var(--bg-color);
     background-size: cover;
     color: var(--text-color);
-    transition: background 0.3s, color 0.3s; /* Effetto di transizione */
+    transition: background 0.5s, color 0.5s; /* Effetto di transizione */
 }
 
 .navbar, .card {
@@ -61,39 +61,28 @@ body {
     color: var(--text-color);
 }
 
-/*Per i link nel footer*/
-footer .nav-link {
-    color: var(--text-color) !important;
-}
-
-footer {
-    position: relative; /* Evita sovrapposizioni */
-    width: 100%;
-    padding: 10px;
-}
-
-footer .nav-link,
-footer p {
-    color: var(--text-color) !important;
-    font-size: 14px; /* Testo leggermente più piccolo */
-}
-
-footer h5 {
-    font-size: 15px; /* Compatta i titoli */
-}
 
 
-footer .col {
-    text-align: center;
-}
 
-body {
+
+/* Assicura che il footer sia sempre in fondo */
+html, body {
+    height: 100%; /* Imposta l'altezza di html e body al 100% */
+    margin: 0; /* Rimuove margini predefiniti */
+    padding: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Assicura che il contenuto occupi almeno tutta l’altezza della viewport */
 }
 
 .container {
     flex: 1; /* Fa sì che il contenuto principale occupi tutto lo spazio disponibile */
-    padding-bottom: 5vh; /* Crea spazio sopra il footer */
+    margin-bottom: 6.4%; /* Aggiunge spazio tra il contenuto e il footer */
+}
+
+footer {
+    margin-top: auto; /* Spinge il footer in fondo alla pagina */
+    width: 100%;
+    color: var(--text-color);
+    text-align: center;
+    height: 260px;
 }

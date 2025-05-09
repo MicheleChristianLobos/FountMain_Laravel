@@ -38,7 +38,7 @@
                             <li><a class="dropdown-item" href="./map.blade.php">Map</a></li>
                             <li><a class="dropdown-item" href="./registration.blade.php">Registration</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">More info</a></li>
+                            <li><a class="dropdown-item" href="./info.blade.php">More info</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -93,7 +93,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Helo again</h5>
                     <p class="card-text">This is the main page of the FountMain site. Make yourself at home.</p>
-                    <a href="#" class="btn btn-primary">Log in</a>
+                    <a href="./login.blade.php" class="btn btn-primary">Log in</a>
                 </div>
             </div>
         </div>
@@ -106,39 +106,40 @@
     <!--Importazione script per la mappa e per il tema della pagina (+ qualche altro punto grafico a parte in theme.js)-->
     <script src="../js/map.js"></script>
     <script src="../js/theme.js"></script>
+
+    <!-- Footer -->
+    <footer class="bg-dark py-4">
+        <container>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <h5>FountMain</h5>
+                        <p>© 2025 FountMain. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h5>Quick Links</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white text-decoration-none">Home</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Features</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Pricing</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">FAQs</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">About</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h5>Follow Us</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="https://github.com/MicheleChristianLobos/FountMain_Laravel.git" class="text-white text-decoration-none" target="_blank">GitHub</a></li>
+                            <li><a href="./map.blade.php" class="text-white text-decoration-none">Map</a></li>
+                            <li><a href="./info.blade.php" class="text-white text-decoration-none">More Info</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    <p class="mb-0">Built with <a href="https://getbootstrap.com/" class="text-white text-decoration-none" target="_blank">Bootstrap</a></p>
+                </div>
+            </div>
+        </container>
+    </footer>
 </body>
-
-
-<!--Footer-->
-<footer class="row row-cols-1 row-cols-sm-2 row-cols-md-4 py-2 border-top">
-    <div class="col mb-3">
-        <a href="/" class="d-flex align-items-center mb-3 text-decoration-none">
-            <svg class="bi me-2" width="40" height="32" aria-hidden="true">
-                <use xlink:href="#bootstrap"></use>
-            </svg>
-        </a>
-        <p class="text-body-secondary">FountMain© 2025</p>
-    </div>
-
-    <div class="col mb-3">
-        <h5>Navigation</h5>
-        <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Home</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Features</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">Pricing</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">FAQs</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">About</a></li>
-        </ul>
-    </div>
-
-    <div class="col mb-3">
-        <h5>Resources</h5>
-        <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="https://github.com/MicheleChristianLobos/FountMain_Laravel.git" class="nav-link p-0" target="_blank">GitHub</a></li>
-            <li class="nav-item mb-2"><a href="./map.blade.php" class="nav-link p-0">Map</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0">More info</a></li>
-        </ul>
-    </div>
-</footer>
-
 </html>
