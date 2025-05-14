@@ -57,7 +57,7 @@
     </div>
 
     <!--Carte-->
-    <div class="container mt-4">
+<div class="container mt-4" style="aspect-ratio:6/2;">
     <div class="row justify-content-center">
         
     <!--Carta della mappa-->
