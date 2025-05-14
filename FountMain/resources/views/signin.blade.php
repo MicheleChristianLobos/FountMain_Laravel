@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Home page</title>
+    <title>Sign in</title>
     <!--API LeafLet-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     
@@ -57,7 +57,7 @@
     </div>
 
     <!--Carte-->
-    <div class="container mt-4" style="padding-bottom:5%;">
+    <div class="container mt-4">
     <div class="row justify-content-center">
         
     <!--Carta della mappa-->
@@ -99,10 +99,6 @@
         </div>
     </div>
 </div>
-
-<footer class="copyrights text-white text-center py-3 fixed-bottom">
-    <p>2025 FountMain - Tutti i diritti riservati.</p>
-</footer>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     

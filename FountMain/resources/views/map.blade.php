@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    
+    <!--Per il tema della pagina (e non solo)-->
+    <link rel="stylesheet" href="../css/theme.css" >
     <style>
         #map { height: 500px; width: 800px;}
         .centered {
@@ -18,8 +21,7 @@
 </head>
 <body>
 
-    <!--NavBar-->
-    <nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="./welcome.blade.php" style="color:gray">FountMain</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,75 +48,26 @@
                     </li>
                 </ul>
             </div>
+
+            <!--Pulsante di cambio tema-->
+            <div>
+                <button id="theme-toggle" type="button" class="btn btn-outline-secondary">Light Theme</button>
+            </div>
         </div>
     </nav>
 
-
     <!--Titolo-->
-    <h1 style="text-align: center;">The FountMain Map</h1>
+    <h1 style="text-align: center;padding-top: 1%;font-family:fantasy;font-size:100px">The FountMain Map</h1>
 
-    <div class="centered">
+    <div class="centered" style="padding-bottom:5%">
         <div id="map" ></div>
     </div>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script>
-        // Inizializza la mappa
-        var map = L.map('map').setView([44.8015, 10.3279], 13); 
 
-        // Aggiungi il layer della mappa
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map);
-
-        navigator.geolocation.getCurrentPosition(function(position) {
-        var lat = position.coords.latitude;
-        var lon = position.coords.longitude;
-
-        var raggioKm = 8; // Modifica il raggio di ricerca
-
-        var latMin = lat - (raggioKm / 111);
-        var latMax = lat + (raggioKm / 111);
-        var lonMin = lon - (raggioKm / (111 * Math.cos(lat * Math.PI / 180)));
-        var lonMax = lon + (raggioKm / (111 * Math.cos(lat * Math.PI / 180)));
-
-        map.setView([lat, lon], 13);
-
-        // Definisci l'icona personalizzata
-        var userIcon = L.icon({
-            iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/ec/RedDot.svg',
-            iconSize: [15, 15],
-            iconAnchor: [7, 7]
-        });
-
-        // Aggiungi il marker dell'utente sulla mappa (DENTRO la funzione)
-        L.marker([lat, lon], { icon: userIcon }).addTo(map)
-            .bindPopup("<b>You are here</b>").openPopup();
-
-        // Crea la query Overpass dinamica con il bounding box calcolato
-        var query = `
-            [out:json];
-            node
-            ["amenity"="drinking_water"]
-            (${latMin},${lonMin},${latMax},${lonMax});
-            out;
-        `;
-
-        var url = "https://overpass-api.de/api/interpreter?data=" + encodeURIComponent(query);
-
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                data.elements.forEach(el => {
-                    if (el.lat && el.lon) {
-                        var marker = L.marker([el.lat, el.lon]).addTo(map)
-                            .bindPopup(`<b>Fountain coords:<br>Lat ${el.lat}<br>Lon ${el.lon}`);
-                    }
-                });
-            })
-            .catch(error => console.error("Errore nel caricamento dei dati:", error));
-        });
-    </script>
+    <!--Importazione script per la mappa e per il tema della pagina (+ qualche altro punto grafico a parte in theme.js)-->
+    <script src="../js/map.js"></script>
+    <script src="../js/theme.js"></script>
 
 </body>
 </html>

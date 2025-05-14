@@ -8,7 +8,8 @@ const logo = document.getElementById("logo");
 if (localStorage.getItem("theme") === "light") {
     body.classList.add("light-mode");
     toggleButton.textContent = "Dark Theme";
-    logo.src = "../img/FountMainLogo.png"; // Logo chiaro
+    if(logo)
+        logo.src = "../img/FountMainLogo.png"; // Logo chiaro
 }
 
 // Cambia tema e aggiorna il logo
@@ -18,10 +19,12 @@ toggleButton.addEventListener("click", function() {
     if (body.classList.contains("light-mode")) {
         localStorage.setItem("theme", "light");
         toggleButton.textContent = "Dark Theme";    //Testo del pulsante in "Dark Theme"
-        logo.src = "../img/FountMainLogo.png"; //Cambiamento del logo in stile chiaro
+        if(logo)
+            logo.src = "../img/FountMainLogo.png"; //Cambiamento del logo in stile chiaro
     } else {
         localStorage.setItem("theme", "dark");
         toggleButton.textContent = "Light Theme";   //Testo del pulsante in "Light Theme"
-        logo.src = "../img/FountMainLogo2.png"; //Cambiamento del logo in stile scuro
+        if(logo)
+            logo.src = "../img/FountMainLogo2.png"; //Cambiamento del logo in stile scuro
     }
 });
