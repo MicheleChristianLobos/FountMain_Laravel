@@ -108,7 +108,7 @@
     <script src="../js/theme.js"></script>
 
     <!-- Footer -->
-    <footer class="bg-dark py-4">
+    <footer class="bg-dark py-4 text-white">
         <container>
             <div class="container">
                 <div class="row">

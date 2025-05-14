@@ -39,7 +39,7 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="./map.blade.php">Map</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">More info</a></li>
+                            <li><a class="dropdown-item" href="./info.blade.php">More info</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -58,7 +58,7 @@
 
 
     <!-- Footer -->
-    <footer class="bg-dark py-4">
+    <footer class="bg-dark py-4 text-white">
         <container>
             <div class="container">
                 <div class="row">
