@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Map</title>
+    <title>Sign in</title>
     <!--API LeafLet-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     
@@ -12,22 +12,10 @@
     
     <!--Per il tema della pagina (e non solo)-->
     <link rel="stylesheet" href="../css/theme.css" >
-    
-    <!--Per il tema della pagina (e non solo)-->
-    <link rel="stylesheet" href="../css/theme.css" >
-    <style>
-        #map { height: 500px; width: 800px;}
-        .centered {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding-top: 60px;
-        }
-    </style>
 </head>
 <body>
-
-<nav class="navbar navbar-expand-lg">
+    <!--NavBar-->
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="./welcome.blade.php" style="color:gray">FountMain</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +24,7 @@
             <div class="navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link disabled" aria-current="page" href="#">Map page</a>
+                        <a class="nav-link disabled" aria-current="page" href="#">Home page</a>
                     </li>
                     <li class="nav-item">
                         <!--Il target="_blank" permette di aprire una nuova finestra con il link indicato e non sostituire la propria pagina con un'altra-->
@@ -47,9 +35,10 @@
                             Other pages
                         </a>
                         <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="./map.blade.php">Map</a></li>
                             <li><a class="dropdown-item" href="./registration.blade.php">Registration</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="./info.blade.php">More info</a></li>
+                            <li><a class="dropdown-item" href="#">More info</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -62,25 +51,15 @@
         </div>
     </nav>
 
-    <!--Titolo-->
-    <h1 style="text-align: center;padding-top: 1%;font-family:fantasy;font-size:100px;">The FountMain Map</h1>
-
-    <div class="container" style="padding-bottom: 1%;">
-        <div class="centered" style="padding-bottom:5%">
-            <div id="map" ></div>
-        </div>
-    </div>
-
     <!--Footer-->
     <footer class="copyrights text-white text-center py-3 fixed-bottom">
         <p>2025 FountMain - Tutti i diritti riservati.</p>
     </footer>
-
+    
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
+    
     <!--Importazione script per la mappa e per il tema della pagina (+ qualche altro punto grafico a parte in theme.js)-->
     <script src="../js/map.js"></script>
     <script src="../js/theme.js"></script>
-
 </body>
 </html>

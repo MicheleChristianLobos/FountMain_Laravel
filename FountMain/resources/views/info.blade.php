@@ -59,38 +59,8 @@
 
 
     <!-- Footer -->
-    <footer class="bg-dark py-4 text-white">
-        <container>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 mb-3">
-                        <h5>FountMain</h5>
-                        <p>© 2025 FountMain. All rights reserved.</p>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <h5>Quick Links</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="#" class="text-white text-decoration-none">Home</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Features</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Pricing</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">FAQs</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">About</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <h5>Follow Us</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="https://github.com/MicheleChristianLobos/FountMain_Laravel.git" class="text-white text-decoration-none" target="_blank">GitHub</a></li>
-                            <li><a href="./map.blade.php" class="text-white text-decoration-none">Map</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">More Info</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="text-center mt-3">
-                    <p class="mb-0">Built with <a href="https://getbootstrap.com/" class="text-white text-decoration-none" target="_blank">Bootstrap</a></p>
-                </div>
-            </div>
-        </container>
+    <footer class="copyrights text-white text-center py-3 fixed-bottom">
+        <p>2025 FountMain - Tutti i diritti riservati.</p>
     </footer>
 </body>
 </html>

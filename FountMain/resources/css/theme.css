@@ -50,6 +50,7 @@
 
 body {
     background: var(--bg-color);
+    height: 250px;
     background-size: cover;
     color: var(--text-color);
     transition: background 0.5s, color 0.5s; /* Effetto di transizione */
@@ -74,15 +75,11 @@ html, body {
     flex-direction: column;
 }
 
-.container {
-    flex: 1; /* Fa sì che il contenuto principale occupi tutto lo spazio disponibile */
-    margin-bottom: 6.4%; /* Aggiunge spazio tra il contenuto e il footer */
-}
 
 footer {
     margin-top: auto; /* Spinge il footer in fondo alla pagina */
     width: 100%;
     color: var(--text-color);
     text-align: center;
-    height: 260px;
+    height: 75px;
 }
