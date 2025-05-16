@@ -3,10 +3,42 @@
 // Inizializza la mappa
 var map = L.map('map').setView([44.8015, 10.3279], 13); 
 
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; <a href="https://carto.com/">CartoDB</a>',
-}).addTo(map);
 
+//Tema chiaro
+var lightTiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+});
+
+//Tema scuro
+var darkTiles = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; CartoDB'
+});
+
+//Controllo del tema al caricamento della pagina
+if (localStorage.getItem("theme") === "light") {
+    lightTiles.addTo(map);
+} else {
+    darkTiles.addTo(map);
+}
+
+//Funzione di gestione del tema della mappa
+function toggleMapTheme(isLight) {
+    if (isLight) {
+        map.removeLayer(lightTiles);
+        darkTiles.addTo(map);
+    } else {
+        map.removeLayer(darkTiles);
+        lightTiles.addTo(map);
+    }
+}
+
+
+//Controlla lo stato del button del tema nella nav bar
+document.getElementById("theme-toggle").addEventListener("click", function() {
+    //Se il button per il tema nella nav bar è in light-mode, allora isLight conterrà True
+    let isLight = document.body.classList.contains("light-mode");
+    toggleMapTheme(isLight);
+});
 
 navigator.geolocation.getCurrentPosition(function(position) {
 var lat = position.coords.latitude;

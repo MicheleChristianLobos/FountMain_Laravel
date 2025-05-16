@@ -38,7 +38,7 @@
                             <li><a class="dropdown-item" href="./map.blade.php">Map</a></li>
                             <li><a class="dropdown-item" href="./registration.blade.php">Registration</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">More info</a></li>
+                            <li><a class="dropdown-item" href="./info.blade.php">More info</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -58,6 +58,7 @@
 
     <!--Carte-->
     <div class="container mt-4" style="padding-bottom:5%;">
+<div class="container mt-4" style="aspect-ratio:6/2;">
     <div class="row justify-content-center">
         
     <!--Carta della mappa-->
@@ -81,7 +82,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Welcome</h5>
                     <p class="card-text">You can register if you want. This way you can save the fountains you want and comment on them.</p>
-                    <a href="#" class="btn btn-primary">Sign in</a>
+                    <a href="./registration.blade.php" class="btn btn-primary">Sign in</a>
                 </div>
             </div>
         </div>
@@ -93,12 +94,13 @@
                 <div class="card-body">
                     <h5 class="card-title">Helo again</h5>
                     <p class="card-text">This is the main page of the FountMain site. Make yourself at home.</p>
-                    <a href="#" class="btn btn-primary">Log in</a>
+                    <a href="./login.blade.php" class="btn btn-primary">Log in</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 <footer class="copyrights text-white text-center py-3 fixed-bottom">
     <p>2025 FountMain - Tutti i diritti riservati.</p>

@@ -39,12 +39,12 @@
 /*Parametri tema scuro e chiaro*/
 
 :root {
-    --bg-color: url('../img/sfondo2.png'); /* Default: dark theme */
+    --bg-color: url('../img/sfondo2.bmp'); /* Default: dark theme */
     --text-color: #cccccc; /* Testo chiaro */
 }
 
 .light-mode {
-    --bg-color: url('../img/sfondo3.png'); /* Sfondo bianco */
+    --bg-color: url('../img/sfondo3.bmp'); /* Sfondo bianco */
     --text-color: black; /* Testo scuro */
 }
 
@@ -52,11 +52,37 @@ body {
     background: var(--bg-color);
     background-size: cover;
     color: var(--text-color);
-    transition: background 0.3s, color 0.3s; /* Effetto di transizione */
+    transition: background 0.5s, color 0.5s; /* Effetto di transizione */
 }
 
 .navbar, .copyrights, .card {
     background-color: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(5px);
     color: var(--text-color);
+}
+
+
+
+
+
+/* Assicura che il footer sia sempre in fondo */
+html, body {
+    height: 100%; /* Imposta l'altezza di html e body al 100% */
+    margin: 0; /* Rimuove margini predefiniti */
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1; /* Fa sì che il contenuto principale occupi tutto lo spazio disponibile */
+    margin-bottom: 6.4%; /* Aggiunge spazio tra il contenuto e il footer */
+}
+
+footer {
+    margin-top: auto; /* Spinge il footer in fondo alla pagina */
+    width: 100%;
+    color: var(--text-color);
+    text-align: center;
+    height: 260px;
 }
