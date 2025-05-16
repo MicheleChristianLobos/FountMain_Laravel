@@ -17,23 +17,20 @@
     <style>
         .form-container {
             max-width: 800px;
-            background-color: #fff;
         }
 
         /*carosello*/
         .carousel-container {
-            width: 300px;
-            height: 300px;
+            width: 443px;
+            height: 443px;
             overflow: hidden;
             position: relative;
-            border: 2px solid #ddd;
-            border-radius: 10px;
         }
 
         .carousel-vertical {
             display: flex;
             flex-direction: column;
-            animation: scrollVertical 6s linear infinite;
+            animation: scrollVertical 12s linear infinite;
         }
 
         .carousel-item {
@@ -47,7 +44,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 10px;
         }
 
         /* Animazione verticale */
@@ -143,17 +139,27 @@
         <div class="col-md-6 d-flex align-items-center justify-content-center" style="margin-left: 30px;">
             <div class="carousel-container">
                 <div class="carousel-vertical">
-                    <!-- Immagine 1 -->
                     <div class="carousel-item">
                         <img src="https://molfettadiscute.altervista.org/wp-content/uploads/2021/06/Fontanella-Molfetta-Front.-Ph.-Dario-Lazzaro-Palombella-2.jpg" alt="Immagine 1">
                     </div>
-                    <!-- Immagine 2 -->
                     <div class="carousel-item">
                         <img src="https://www.amam.it/wp-content/uploads/2024/05/fontanella-sin-1.png" alt="Immagine 2">
                     </div>
-                    <!-- Immagine 3 -->
                     <div class="carousel-item">
                         <img src="https://formedacqua.com/wp-content/uploads/2022/07/blog_risparmio2.jpg" alt="Immagine 3">
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-vertical">
+                    <div class="carousel-item">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMRNAPyymBk65SRm_nB41xIs6aOZ4PXh3NRw&s" alt="Immagine 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ899dUpNoC2vCodTn_eSSAHHWYJouEWodanQ&s" alt="Immagine 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNGrthLgCM6NFkW1sWZ_1sETHAccqaR457uA&s" alt="Immagine 3">
                     </div>
                 </div>
             </div>
