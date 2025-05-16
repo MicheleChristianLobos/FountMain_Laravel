@@ -12,6 +12,54 @@
     
     <!--Per il tema della pagina (e non solo)-->
     <link rel="stylesheet" href="../css/theme.css" >
+    <style>
+        .form-container {
+            max-width: 800px;
+        }
+
+        /*carosello*/
+        .carousel-container {
+            width: 443px;
+            height: 443px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel-vertical {
+            display: flex;
+            flex-direction: column;
+            animation: scrollVertical 12s linear infinite;
+        }
+
+        .carousel-item {
+            flex: 0 0 300px; /* Altezza fissa per ogni immagine */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Animazione verticale */
+        @keyframes scrollVertical {
+            0% {
+                transform: translateY(0);
+            }
+            33% {
+                transform: translateY(-300px);
+            }
+            66% {
+                transform: translateY(-600px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 <body>
     <!--NavBar-->
