@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Mag 20, 2025 alle 10:44
+-- Creato il: Mag 20, 2025 alle 10:53
 -- Versione del server: 10.4.28-MariaDB
 -- Versione PHP: 8.2.4
 
@@ -32,8 +32,8 @@ USE `fountmain`;
 CREATE TABLE `Fontane` (
   `id` int(11) NOT NULL,
   `nome` varchar(50) NOT NULL,
-  `coord_x` float NOT NULL,
-  `coord_y` float NOT NULL,
+  `lat` float NOT NULL,
+  `long` float NOT NULL,
   `img` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
