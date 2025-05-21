@@ -64,10 +64,10 @@
                 <div class="col-md-6 mb-4">
                     <div class="card h-100 shadow-sm">
                         <div class="card-body">
-                            <h5 class="card-title">1. Gestione Prenotazioni per una Scuola</h5>
-                            <p class="card-text">Un'app per gestire la prenotazione di laboratori, aule studio o dispositivi (PC, stampanti 3D, proiettori).</p>
-                            <span class="badge bg-primary">CodeIgniter</span>
-                            <span class="badge bg-secondary">Firebase</span>
+                            <h5 class="card-title">Laravel</h5>
+                            <p class="card-text">Un framework per gestire alcune funzioni più da lato server che client.</p>
+                            <span class="badge bg-primary">Server</span>
+                            <span class="badge bg-secondary">Database</span>
                             <span class="badge bg-secondary">MySQL</span>
                         </div>
                     </div>
@@ -77,11 +77,11 @@
                 <div class="col-md-6 mb-4">
                     <div class="card h-100 shadow-sm">
                         <div class="card-body">
-                            <h5 class="card-title">2. Sistema di Bacheca Digitale per Annunci Scolastici</h5>
-                            <p class="card-text">Una piattaforma per pubblicare annunci, eventi e avvisi della scuola.</p>
-                            <span class="badge bg-primary">CodeIgniter</span>
-                            <span class="badge bg-secondary">MongoDB</span>
-                            <span class="badge bg-secondary">MySQL</span>
+                            <h5 class="card-title">XAMPP</h5>
+                            <p class="card-text">XAMPP è una piattaforma software multipiattaforma e libera costituita da Apache HTTP Server, il DBMS MariaDB e tutti gli strumenti necessari per utilizzare i linguaggi di programmazione PHP e Perl.</p>
+                            <span class="badge bg-primary">Apache</span>
+                            <span class="badge bg-secondary">MariaDB</span>
+                            <span class="badge bg-secondary">PHP/Perl</span>
                         </div>
                     </div>
                 </div>
@@ -103,7 +103,7 @@
     </div>
 
     <!--Descrizione richiesta-->
-    <div style="padding-bottom: 8%;">
+    <div style="padding-bottom: 3%;">
         <div class="accordion accordion-flush bg-dark text-light mt-5 mb-5" id="accordionFlushExample">
             <!-- Esempi di Progetti -->
             <div class="accordion-item bg-dark border-0">
