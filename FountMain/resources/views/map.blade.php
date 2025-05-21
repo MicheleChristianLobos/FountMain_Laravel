@@ -47,7 +47,9 @@
                             Other pages
                         </a>
                         <ul class="dropdown-menu">
+                        <li><a class="dropdown-item disabled" href=""><strong>> Map</strong></a></li>
                             <li><a class="dropdown-item" href="./registration.blade.php">Registration</a></li>
+                            <li><a class="dropdown-item" href="./login.blade.php">Login</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="./info.blade.php">More info</a></li>
                         </ul>

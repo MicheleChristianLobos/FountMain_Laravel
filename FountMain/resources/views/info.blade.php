@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Info</title>
-    
+    <title>Sign in</title>
     <!--API LeafLet-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     
@@ -14,6 +12,7 @@
     
     <!--Per il tema della pagina (e non solo)-->
     <link rel="stylesheet" href="../css/theme.css" >
+
 </head>
 <body>
     <!--NavBar-->
@@ -26,7 +25,7 @@
             <div class="navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link disabled" aria-current="page" href="#">Info page</a>
+                        <a class="nav-link disabled" aria-current="page" href="#">Home page</a>
                     </li>
                     <li class="nav-item">
                         <!--Il target="_blank" permette di aprire una nuova finestra con il link indicato e non sostituire la propria pagina con un'altra-->
@@ -39,8 +38,9 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="./map.blade.php">Map</a></li>
                             <li><a class="dropdown-item" href="./registration.blade.php">Registration</a></li>
+                            <li><a class="dropdown-item" href="./login.blade.php">Login</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><p class="dropdown-item">You already are <br> in the info page</p></li>
+                            <li><a class="dropdown-item disabled" href=""><strong>> More info</strong></a></li>
                         </ul>
                     </li>
                 </ul>
@@ -52,15 +52,162 @@
             </div>
         </div>
     </nav>
+
+    <!--Titolo-->
+    <h1 style="text-align: center;padding-top: 1%;font-family:fantasy;font-size:100px;">Project Info</h1>
     
+    <div style="padding-top:4%">
+        <!-- Lista delle idee -->
+        <div class="container" >
+            <div class="row">
+                <!-- Esempio di progetto -->
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">1. Gestione Prenotazioni per una Scuola</h5>
+                            <p class="card-text">Un'app per gestire la prenotazione di laboratori, aule studio o dispositivi (PC, stampanti 3D, proiettori).</p>
+                            <span class="badge bg-primary">CodeIgniter</span>
+                            <span class="badge bg-secondary">Firebase</span>
+                            <span class="badge bg-secondary">MySQL</span>
+                        </div>
+                    </div>
+                </div>
 
-    <!--Importazione script per il tema della pagina (+ qualche altro punto grafico a parte in theme.js)-->
-    <script src="../js/theme.js"></script>
+                <!-- Ripeti per ogni progetto -->
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">2. Sistema di Bacheca Digitale per Annunci Scolastici</h5>
+                            <p class="card-text">Una piattaforma per pubblicare annunci, eventi e avvisi della scuola.</p>
+                            <span class="badge bg-primary">CodeIgniter</span>
+                            <span class="badge bg-secondary">MongoDB</span>
+                            <span class="badge bg-secondary">MySQL</span>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Aggiungi altre idee -->
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">3. Web App per la Gestione di Progetti di Classe</h5>
+                            <p class="card-text">Gestione Team semplificato per organizzare i lavori di gruppo con task, scadenze e file.</p>
+                            <span class="badge bg-primary">CodeIgniter</span>
+                            <span class="badge bg-secondary">Firebase</span>
+                            <span class="badge bg-secondary">Drag & Drop API</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <!-- Footer -->
+    <!--Descrizione richiesta-->
+    <div style="padding-bottom: 8%;">
+        <div class="accordion accordion-flush bg-dark text-light mt-5 mb-5" id="accordionFlushExample">
+            <!-- Esempi di Progetti -->
+            <div class="accordion-item bg-dark border-0">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    🔹Creare una web application con framework php codeigniter (accettato anche laravel)
+                    </button>
+                </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item bg-dark text-light">
+                                <strong>Questo progetto è stato realizzato sfruttando funzionalità prese dal framework Laravel</strong><br>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item bg-dark border-0">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo-1" aria-expanded="false" aria-controls="flush-collapseTwo-1">
+                    🔹L'applicazione dev'essere bella, funzionante e consistente
+                    </button>
+                </h2>
+                <div id="flush-collapseTwo-1" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item bg-dark text-light">
+                                <strong>Le pagine (quindi lato view) sono state formate grazie a bootstrap e un pizzico di copilot (più per il CSS)</strong><br>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item bg-dark border-0">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo-2" aria-expanded="false" aria-controls="flush-collapseTwo-2">
+                    🔹Consentiti gruppi max 2 persone che si specializzino ma abbiano sempre la consapevolezza dell'intero progetto
+                    </button>
+                </h2>
+                <div id="flush-collapseTwo-2" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item bg-dark text-light">
+                                <strong>Questo progetto è stato realizzato sfruttando funzionalità prese dal framework Laravel</strong><br>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item bg-dark border-0">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo-3" aria-expanded="false" aria-controls="flush-collapseTwo-3">
+                    🔹Consegna a maggio 2025 in data da definire
+                    </button>
+                </h2>
+                <div id="flush-collapseTwo-3" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item bg-dark text-light">
+                                <strong>Questo progetto è stato realizzato sfruttando funzionalità prese dal framework Laravel</strong><br>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item bg-dark border-0">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo-4" aria-expanded="false" aria-controls="flush-collapseTwo-4">
+                    🔹Ogni tot lezioni verrà richiesto ad ogni progetto di presentare lo stato attuale
+                    </button>
+                </h2>
+                <div id="flush-collapseTwo-4" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item bg-dark text-light">
+                                <strong>Questo progetto è stato realizzato sfruttando funzionalità prese dal framework Laravel</strong><br>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item bg-dark border-0">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo-5" aria-expanded="false" aria-controls="flush-collapseTwo-5">
+                    🔹Venerdì 28/03 proporre Chi/CheCosa Esempi e tecnologie di web application
+                    </button>
+                </h2>
+                <div id="flush-collapseTwo-5" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item bg-dark text-light">
+                                <strong>Questo progetto è stato realizzato sfruttando funzionalità prese dal framework Laravel</strong><br>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer-->
     <footer class="copyrights text-white text-center py-3 fixed-bottom">
         <p>2025 FountMain - Tutti i diritti riservati.</p>
     </footer>
+    
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    
+    <!--Importazione script per la mappa e per il tema della pagina (+ qualche altro punto grafico a parte in theme.js)-->
+    <script src="../js/map.js"></script>
+    <script src="../js/theme.js"></script>
 </body>
 </html>
