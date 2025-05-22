@@ -73,7 +73,6 @@
                     </div>
                 </div>
 
-                <!-- Ripeti per ogni progetto -->
                 <div class="col-md-6 mb-4">
                     <div class="card h-100 shadow-sm">
                         <div class="card-body">
@@ -86,15 +85,26 @@
                     </div>
                 </div>
 
-                <!-- Aggiungi altre idee -->
                 <div class="col-md-6 mb-4">
                     <div class="card h-100 shadow-sm">
                         <div class="card-body">
-                            <h5 class="card-title">3. Web App per la Gestione di Progetti di Classe</h5>
-                            <p class="card-text">Gestione Team semplificato per organizzare i lavori di gruppo con task, scadenze e file.</p>
-                            <span class="badge bg-primary">CodeIgniter</span>
-                            <span class="badge bg-secondary">Firebase</span>
-                            <span class="badge bg-secondary">Drag & Drop API</span>
+                            <h5 class="card-title">Apache</h5>
+                            <p class="card-text">Apache è il server WEB, Open-Source, utilizzato da XAMPP (Fondamentale per questo progetto visto che è un sito WEB)</p>
+                            <span class="badge bg-primary">Apache</span>
+                            <span class="badge bg-secondary">HTTP</span>
+                            <span class="badge bg-secondary">Server Web</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">MariaDB</h5>
+                            <p class="card-text">Inizialmente XAMPP utilizzava MySQL, ora invece è stato sostituito con MariaDB.<br>MariaDB è il database Open-Source contenente (in questo progetto) le tabelle degli utenti, fontane, ecc. Grazie a XAMPP, c'è una visualizzazione grafica WEB per la gestione del database in modo da agevolare i programmatori.</p>
+                            <span class="badge bg-primary">XAMPP</span>
+                            <span class="badge bg-secondary">Server Web</span>
+                            <span class="badge bg-secondary">MySQL</span>
                         </div>
                     </div>
                 </div>

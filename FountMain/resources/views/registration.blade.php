@@ -12,27 +12,31 @@
     
     <!--Per il tema della pagina (e non solo)-->
     <link rel="stylesheet" href="../css/theme.css" >
-    <style>
+<style>
         .form-container {
             max-width: 800px;
+            background-color: #fff;
         }
 
         /*carosello*/
         .carousel-container {
-            width: 443px;
-            height: 443px;
+            width: 100%;
+            height: 100vh;
             overflow: hidden;
             position: relative;
+            border: none; /* Rimosso bordo */
+            border-radius: 0; /* Rimosso bordo arrotondato */
         }
 
         .carousel-vertical {
             display: flex;
             flex-direction: column;
-            animation: scrollVertical 12s linear infinite;
+            animation: scrollVertical 30s linear infinite; /* 30s = 5s per immagine, puoi regolare */
+            height: 100vh;
         }
 
         .carousel-item {
-            flex: 0 0 300px; /* Altezza fissa per ogni immagine */
+            flex: 0 0 100vh; /* Altezza fissa per ogni immagine */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -40,24 +44,34 @@
 
         .carousel-item img {
             width: 100%;
-            height: 100%;
+            height: 100vh;
             object-fit: cover;
+            border-radius: 0;
         }
 
         /* Animazione verticale */
         @keyframes scrollVertical {
-            0% {
-                transform: translateY(0);
-            }
-            33% {
-                transform: translateY(-300px);
-            }
-            66% {
-                transform: translateY(-600px);
-            }
-            100% {
-                transform: translateY(0);
-            }
+            0%   { transform: translateY(0); }
+            16.66% { transform: translateY(-100vh); }
+            33.33% { transform: translateY(-200vh); }
+            50%    { transform: translateY(-300vh); }
+            66.66% { transform: translateY(-400vh); }
+            83.33% { transform: translateY(-500vh); }
+            100%   { transform: translateY(0); }
+        }
+
+        /* Layout a due colonne full height */
+        .main-row {
+            height: 100vh;
+        }
+        .carousel-col {
+            padding: 0;
+        }
+        .form-col {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
     </style>
 </head>
@@ -99,6 +113,85 @@
             </div>
         </div>
     </nav>
+
+    <div class="row main-row">
+        <!-- Colonna per il carosello (sinistra) -->
+        <div class="col-md-6 carousel-col">
+            <div class="carousel-container">
+                <div class="carousel-vertical">
+                    <!-- Immagine 1 -->
+                    <div class="carousel-item">
+                        <img src="https://molfettadiscute.altervista.org/wp-content/uploads/2021/06/Fontanella-Molfetta-Front.-Ph.-Dario-Lazzaro-Palombella-2.jpg" alt="Immagine 1">
+                    </div>
+                    <!-- Immagine 2 -->
+                    <div class="carousel-item">
+                        <img src="https://www.amam.it/wp-content/uploads/2024/05/fontanella-sin-1.png" alt="Immagine 2">
+                    </div>
+                    <!-- Immagine 3 -->
+                    <div class="carousel-item">
+                        <img src="https://formedacqua.com/wp-content/uploads/2022/07/blog_risparmio2.jpg" alt="Immagine 3">
+                    </div>
+                    <!-- Immagine 4 -->
+                    <div class="carousel-item">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8goabj2DQYnOIUhvh7SjNprmWUfUsgEuDGA&s" alt="Immagine 3">
+                    </div>
+                    <!-- Immagine 5 -->
+                    <div class="carousel-item">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa2daWMQkzNkmohIpUbUeFkltBlkDSOZapTg&s" alt="Immagine 3">
+                    </div>
+                    <!-- Immagine 6 -->
+                    <div class="carousel-item">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWXEBs0LDMXUTK4K2oL7pYov94L48hZ62W3A&s" alt="Immagine 3">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Colonna del form (destra) -->
+        <div class="col-md-6 form-col">
+            <div style="max-width: 400px; width: 100%;">
+                <h2 class="mb-4">Registrazione</h2>
+                <form action="/register" method="POST">
+                    <!-- Nome -->
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Inserisci il tuo nome" required>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Inserisci la tua email" required>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Inserisci la tua password" required>
+                    </div>
+
+                    <!-- Conferma Password -->
+                    <div class="mb-3">
+                        <label for="password_confirmation" class="form-label">Conferma Password</label>
+                        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Conferma la tua password" required>
+                    </div>
+
+                    <!-- Pulsante di invio -->
+                    <button type="submit" class="btn btn-primary w-100">Registrati</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.carousel-container').addEventListener('mouseover', function () {
+            document.querySelector('.carousel-vertical').style.animationPlayState = 'paused';
+        });
+
+        document.querySelector('.carousel-container').addEventListener('mouseout', function () {
+            document.querySelector('.carousel-vertical').style.animationPlayState = 'running';
+        });
+    </script>
+
 
     <!--Footer-->
     <footer class="copyrights text-white text-center py-3 fixed-bottom">
