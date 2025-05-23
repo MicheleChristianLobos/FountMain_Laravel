@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign in</title>
-    <!--API LeafLet-->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -77,7 +75,7 @@
 </head>
 <body>
     <!--NavBar-->
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg" style="z-index: 2;">
         <div class="container-fluid">
             <a class="navbar-brand" href="./welcome.blade.php" style="color:gray">FountMain</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -116,7 +114,7 @@
 
     <div class="row main-row">
         <!-- Colonna per il carosello (sinistra) -->
-        <div class="col-md-6 carousel-col">
+        <div class="col-md-6 carousel-col" style="z-index: 1;">
             <div class="carousel-container">
                 <div class="carousel-vertical">
                     <!-- Immagine 1 -->
@@ -147,36 +145,36 @@
             </div>
         </div>
         <!-- Colonna del form (destra) -->
-        <div class="col-md-6 form-col">
+        <div class="col-md-6 form-col" style="z-index: 3;">
             <div style="max-width: 400px; width: 100%;">
-                <h2 class="mb-4">Registrazione</h2>
+                <h2 class="mb-4">Sign-in</h2>
                 <form action="/register" method="POST">
                     <!-- Nome -->
                     <div class="mb-3">
-                        <label for="name" class="form-label">Nome</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Inserisci il tuo nome" required>
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="enter yout name" required>
                     </div>
 
                     <!-- Email -->
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Inserisci la tua email" required>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="enter your email" required>
                     </div>
 
                     <!-- Password -->
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Inserisci la tua password" required>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="enter your password" required>
                     </div>
 
                     <!-- Conferma Password -->
                     <div class="mb-3">
-                        <label for="password_confirmation" class="form-label">Conferma Password</label>
-                        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Conferma la tua password" required>
+                        <label for="password_confirmation" class="form-label">Confirm the password</label>
+                        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="confirm the password" required>
                     </div>
 
                     <!-- Pulsante di invio -->
-                    <button type="submit" class="btn btn-primary w-100">Registrati</button>
+                    <button type="submit" class="btn btn-primary w-100">Sign-in</button>
                 </form>
             </div>
         </div>
@@ -198,10 +196,7 @@
         <p>2025 FountMain - Tutti i diritti riservati.</p>
     </footer>
     
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    
-    <!--Importazione script per la mappa e per il tema della pagina (+ qualche altro punto grafico a parte in theme.js)-->
-    <script src="../js/map.js"></script>
+    <!--per il tema della pagina (+ qualche altro punto grafico a parte in theme.js)-->
     <script src="../js/theme.js"></script>
 </body>
 </html>

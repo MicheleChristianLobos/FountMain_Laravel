@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign in</title>
-    <!--API LeafLet-->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -77,7 +75,7 @@
 </head>
 <body>
     <!--NavBar-->
-    <nav class="navbar navbar-expand-lg" style="z-index: 1000;">
+    <nav class="navbar navbar-expand-lg" style="z-index: 2;">
         <div class="container-fluid">
             <a class="navbar-brand" href="./welcome.blade.php" style="color:gray">FountMain</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -114,7 +112,7 @@
         </div>
     </nav>
 
-    <div class="row main-row" style="z-index: -1000;">
+    <div class="row main-row" style="z-index: 1;">
         <!-- Colonna per il carosello (sinistra) -->
         <div class="col-md-6 carousel-col">
             <div class="carousel-container">
@@ -147,24 +145,24 @@
             </div>
         </div>
         <!-- Colonna del form (destra) -->
-        <div class="col-md-6 form-col">
+        <div class="col-md-6 form-col" style="z-index: 3;">
             <div style="max-width: 400px; width: 100%;">
                 <h2 class="mb-4">login</h2>
                 <form action="/register" method="POST">
                     <!-- Email -->
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="...enter your Email" required>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="enter your Email" required>
                     </div>
 
                     <!-- Password -->
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="...enter your Password" required>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="enter your Password" required>
                     </div>
 
                     <!-- Pulsante di invio -->
-                    <button type="submit" class="btn btn-primary w-100">Login</button>
+                    <button type="submit" class="btn btn-primary w-100">Log-in</button>
                 </form>
             </div>
         </div>
@@ -186,10 +184,7 @@
         <p>2025 FountMain - Tutti i diritti riservati.</p>
     </footer>
     
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    
-    <!--Importazione script per la mappa e per il tema della pagina (+ qualche altro punto grafico a parte in theme.js)-->
-    <script src="../js/map.js"></script>
+    <!--per il tema della pagina (+ qualche altro punto grafico a parte in theme.js)-->
     <script src="../js/theme.js"></script>
 </body>
 </html>

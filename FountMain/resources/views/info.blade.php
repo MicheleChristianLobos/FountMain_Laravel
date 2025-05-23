@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign in</title>
-    <!--API LeafLet-->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -214,10 +212,7 @@
         <p>2025 FountMain - Tutti i diritti riservati.</p>
     </footer>
     
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    
-    <!--Importazione script per la mappa e per il tema della pagina (+ qualche altro punto grafico a parte in theme.js)-->
-    <script src="../js/map.js"></script>
+    <!--per il tema della pagina (+ qualche altro punto grafico a parte in theme.js)-->
     <script src="../js/theme.js"></script>
 </body>
 </html>
