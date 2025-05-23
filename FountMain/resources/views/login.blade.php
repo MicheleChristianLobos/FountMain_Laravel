@@ -21,20 +21,20 @@
             width: 100%;
             height: 100vh;
             overflow: hidden;
-            position: relative;
-            border: none; /* Rimosso bordo */
-            border-radius: 0; /* Rimosso bordo arrotondato */
+            position: relative; /* Necessario per posizionare l'overlay */
+            border: none;
+            border-radius: 0;
         }
 
         .carousel-vertical {
             display: flex;
             flex-direction: column;
-            animation: scrollVertical 30s linear infinite; /* 30s = 5s per immagine, puoi regolare */
+            animation: scrollVertical 30s linear infinite;
             height: 100vh;
         }
 
         .carousel-item {
-            flex: 0 0 100vh; /* Altezza fissa per ogni immagine */
+            flex: 0 0 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -44,7 +44,19 @@
             width: 100%;
             height: 100vh;
             object-fit: cover;
-            border-radius: 0;
+        }
+
+        /* Overlay semitrasparente */
+        .carousel-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(36, 28, 49, 0.38); /* Colore nero con opacità 50% */
+            backdrop-filter: blur(5px); /* Effetto ovattato */
+            z-index: 1; /* Sopra il carosello */
+            pointer-events: none; /* Permette di interagire con gli elementi sottostanti */
         }
 
         /* Animazione verticale */
@@ -116,6 +128,7 @@
         <!-- Colonna per il carosello (sinistra) -->
         <div class="col-md-6 carousel-col">
             <div class="carousel-container">
+                <div class="carousel-overlay"></div>
                 <div class="carousel-vertical">
                     <!-- Immagine 1 -->
                     <div class="carousel-item">
