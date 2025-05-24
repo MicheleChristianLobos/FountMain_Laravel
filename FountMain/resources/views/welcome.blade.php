@@ -56,6 +56,8 @@
     <div class="centered">
         <img id="logo" src="../img/FountMainLogo2.png" alt="Logo">
     </div>
+    
+
 
     <!--Carte-->
     <div class="container mt-4" style="aspect-ratio:6.28/3">
@@ -102,6 +104,12 @@
         </div>
     </div>
 
+    <div style="padding-bottom: 100px;">
+        <h3 class="centered" style="padding-top:50px;">This is a simple site that use LeafLet and OpenStreetMap API to search in your zone FOUNTAINS :D</h3>
+        <h4 class="centered">If you want to join us, just sign in. If you are already one of us, log in. </h4>
+        <h4 class="centered"><br>Simple</h4>
+    </div>
+    
     <!--Footer-->
     <footer class="copyrights text-white text-center py-3 fixed-bottom">
         <p>2025 FountMain - Tutti i diritti riservati.</p>
