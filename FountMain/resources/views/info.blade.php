@@ -87,7 +87,7 @@
                     <div class="card h-100 shadow-sm">
                         <div class="card-body">
                             <h5 class="card-title">Apache</h5>
-                            <p class="card-text">Apache è il server WEB, Open-Source, utilizzato da XAMPP (Fondamentale per questo progetto visto che è un sito WEB)</p>
+                            <p class="card-text">Apache è il server WEB, Open-Source, utilizzato da XAMPP (Fondamentale per questo progetto visto che è una Web Application)</p>
                             <span class="badge bg-primary">Apache</span>
                             <span class="badge bg-secondary">HTTP</span>
                             <span class="badge bg-secondary">Server Web</span>
@@ -124,7 +124,7 @@
                     <div class="accordion-body">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item bg-dark text-light">
-                                <strong>Questo progetto è stato realizzato sfruttando funzionalità prese dal framework Laravel</strong><br>
+                                Questo progetto è stato realizzato sfruttando funzionalità prese dal framework <strong>Laravel</strong><br>
                         </ul>
                     </div>
                 </div>
@@ -139,7 +139,7 @@
                     <div class="accordion-body">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item bg-dark text-light">
-                                <strong>Le pagine (quindi lato view) sono state formate grazie a bootstrap e un pizzico di copilot (più per il CSS)</strong><br>
+                                Le pagine (lato view) sono state formate grazie a <strong>bootstrap</strong> e un pizzico di <strong>copilot</strong> (più per il CSS)<br>
                         </ul>
                     </div>
                 </div>
@@ -154,7 +154,7 @@
                     <div class="accordion-body">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item bg-dark text-light">
-                                <strong>Questo progetto è stato realizzato sfruttando funzionalità prese dal framework Laravel</strong><br>
+                               Programmatori:  <strong><br>Michele Christian Lobos <br>Nicola Schianchi.</strong><br>
                         </ul>
                     </div>
                 </div>
@@ -169,7 +169,7 @@
                     <div class="accordion-body">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item bg-dark text-light">
-                                <strong>Questo progetto è stato realizzato sfruttando funzionalità prese dal framework Laravel</strong><br>
+                                Preferibilmente questo progetto verrà presentato il <strong>30/05/2025</strong><br>
                         </ul>
                     </div>
                 </div>
@@ -184,7 +184,7 @@
                     <div class="accordion-body">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item bg-dark text-light">
-                                <strong>Questo progetto è stato realizzato sfruttando funzionalità prese dal framework Laravel</strong><br>
+                                ...
                         </ul>
                     </div>
                 </div>
@@ -199,7 +199,7 @@
                     <div class="accordion-body">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item bg-dark text-light">
-                                <strong>Questo progetto è stato realizzato sfruttando funzionalità prese dal framework Laravel</strong><br>
+                                ...
                         </ul>
                     </div>
                 </div>
