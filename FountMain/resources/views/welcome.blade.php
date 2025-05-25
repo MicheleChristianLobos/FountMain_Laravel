@@ -74,7 +74,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Map</h5>
                     <p class="card-text">In this map you can find fountains within 8 km from where you are.</p>
-                    <a href="./map.blade.php" class="btn btn-primary">Go somewhere</a>
+                    <a href="{{ asset('/map') }}" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
         </div>
@@ -85,7 +85,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Welcome</h5>
                     <p class="card-text">You can register if you want. This way you can save the fountains you want and comment on them.</p>
-                    <a href="./registration.blade.php" class="btn btn-primary">Sign in</a>
+                    <a href="{{ asset('/signin') }}" class="btn btn-primary">Sign in</a>
                 </div>
             </div>
         </div>
@@ -96,7 +96,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Helo again</h5>
                     <p class="card-text">This is the main page of the FountMain site. Make yourself at home.</p>
-                    <a href="./login.blade.php" class="btn btn-primary">Log in</a>
+                    <a href="{{ asset('/login') }}" class="btn btn-primary">Log in</a>
                 </div>
             </div>
         </div>
