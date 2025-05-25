@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
     
     <!--Per il tema della pagina (e non solo)-->
-    <link rel="stylesheet" href="../css/theme.css" >
+    <link rel="stylesheet" href="{{ asset('/css/theme.css') }}" >
 <style>
         .form-container {
             max-width: 800px;
@@ -89,7 +89,7 @@
     <!--NavBar-->
     <nav class="navbar navbar-expand-lg" style="z-index: 2;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="./welcome.blade.php" style="color:gray">FountMain</a>
+            <a class="navbar-brand" href="{{ asset('/') }}" style="color:gray">FountMain</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -107,11 +107,11 @@
                             Other pages
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="./map.blade.php">Map</a></li>
+                            <li><a class="dropdown-item" href="{{ asset('/map') }}">Map</a></li>
                             <li><a class="dropdown-item disabled" href=""><strong>> Registration</strong></a></li>
-                            <li><a class="dropdown-item" href="./login.blade.php">Login</a></li>
+                            <li><a class="dropdown-item" href="{{ asset('/login') }}">Login</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="./info.blade.php">More info</a></li>
+                            <li><a class="dropdown-item" href="{{ asset('/info') }}">More info</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -213,6 +213,6 @@
     </footer>
     
     <!--per il tema della pagina (+ qualche altro punto grafico a parte in theme.js)-->
-    <script src="../js/theme.js"></script>
+    <script src="{{ asset('/js/theme.js') }}"></script>
 </body>
 </html>

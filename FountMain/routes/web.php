@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+/*I percorsi sono indicati a /FountMain/FountMain/public/resources/views/...*/
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +17,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/signin', function () {
+    return view('registration');
+});
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/info', function () {
+    return view('info');
 });
 
 Route::get('/map', function () {
