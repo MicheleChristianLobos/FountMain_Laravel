@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+    <link rel="icon" href="{{ asset('/favicon.ico') }}" type="image/x-icon">
     <meta charset="UTF-8">
     <title>Map</title>
     <!--API LeafLet-->

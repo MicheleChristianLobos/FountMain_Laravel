@@ -82,3 +82,33 @@ footer {
     text-align: center;
     height: 75px;
 }
+
+
+/* Scrollbar viola a sinistra e personalizzata */
+body {
+    direction: rtl; /* Inverte la direzione della scrollbar */
+}
+body * {
+    direction: ltr; /* Mantiene il testo normale */
+}
+
+/* Personalizzazione scrollbar per Chrome, Edge, Safari */
+::-webkit-scrollbar {
+    width: 12px;
+    background:rgb(0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #8000ff; /* Viola */
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background:rgb(0, 0, 0); /* Viola più chiaro al passaggio */
+}
+
+/* Per Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #29345e rgb(7, 8, 15, 1); /* Viola su sfondo nero */
+}

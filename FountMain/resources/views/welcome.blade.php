@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <link rel="icon" href="{{ asset('./img/favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('/favicon.ico') }}" type="image/x-icon">
     <meta charset="UTF-8">
     <title>Home page</title>
     <!--API LeafLet-->
@@ -18,6 +18,7 @@
     
     <!--Per il tema della pagina (e non solo)-->
     <link rel="stylesheet" href="{{ asset('/css/theme.css') }}" >
+
 </head>
 <body>
     <!--NavBar-->

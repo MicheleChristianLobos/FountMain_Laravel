@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+    <link rel="icon" href="{{ asset('/favicon.ico') }}" type="image/x-icon">
     <meta charset="UTF-8">
     <title>Sign in</title>
     
@@ -164,11 +165,19 @@
         <div class="col-md-6 form-col" style="z-index: 3;">
             <div style="max-width: 400px; width: 100%;">
                 <h2 class="mb-4">Sign-in</h2>
-                <form action="/register" method="POST">
+                <form action="{{ asset('/utenti') }}" method="POST">
+                    @csrf <!--Token per la sicurezza del POST richiesto da Laravel-->
+
                     <!-- Nome -->
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="enter yout name" required>
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="enter your name" required>
+                    </div>
+
+                    <!-- Cognome -->
+                    <div class="mb-3">
+                        <label for="cognome" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="cognome" name="cognome" placeholder="enter your username" required>
                     </div>
 
                     <!-- Email -->

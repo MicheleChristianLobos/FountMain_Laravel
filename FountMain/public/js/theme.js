@@ -3,6 +3,7 @@
 const toggleButton = document.getElementById("theme-toggle");
 const body = document.body;
 const logo = document.getElementById("logo");
+const barraScorrimento = document.getElementById("::-webkit-scrollbar-thumb");
 
 // Controlla il tema salvato e il logo corrispondente
 if (localStorage.getItem("theme") === "light") {
