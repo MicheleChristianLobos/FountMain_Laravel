@@ -165,7 +165,7 @@
         <div class="col-md-6 form-col" style="z-index: 3;">
             <div style="max-width: 400px; width: 100%;">
                 <h2 class="mb-4">Sign-in</h2>
-                <form action="{{ asset('/utenti') }}" method="POST">
+                <form action="{{ asset('/utenti') }}" method="POST"">
                     @csrf <!--Token per la sicurezza del POST richiesto da Laravel-->
 
                     <!-- Nome -->
@@ -190,12 +190,6 @@
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" id="password" name="password" placeholder="enter your password" required>
-                    </div>
-
-                    <!-- Conferma Password -->
-                    <div class="mb-3">
-                        <label for="password_confirmation" class="form-label">Confirm the password</label>
-                        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="confirm the password" required>
                     </div>
 
                     <!-- Pulsante di invio -->

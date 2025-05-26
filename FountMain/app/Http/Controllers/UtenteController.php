@@ -16,9 +16,10 @@ class UtenteController extends Controller
     }
 
     public function store(Request $request)
-    {
+    {   
         $utente = Utente::create($request->except('_token'));
-        return response()->json($utente, 201);
+        response()->json($utente, 201);
+        return redirect("/");
     }
 }
  
