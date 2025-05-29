@@ -156,12 +156,12 @@ fetch('/FountMain/FountMain/public/fontane/list')
                             .bindPopup(`
                                 <b>${nomeFontana}</b><br>
                                 lat:${el.lat}<br>lon:${el.lon}<br>
-                                <img id="img-${el.lat}-${el.lon}" src="${fontanaDb && fontanaDb.img ? fontanaDb.img : 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Fontana_022.jpg/500px-Fontana_022.jpg'}" style="width:100%;"><br>
+                                <img id="img-${el.lat}-${el.lon}" src="${fontanaDb && fontanaDb.img ? fontanaDb.img : 'https://media.istockphoto.com/id/975667108/it/vettoriale/acqua-potabile.jpg?s=612x612&w=0&k=20&c=lflqmY7sQWgmCX11YyJ-MWoc7__TaiuhyJPtOiPRsb0='}" style="width:100%;"><br>
                                 <input type="file" accept="image/*" onchange="caricaImmagine(event, ${el.lat}, ${el.lon})"><br>
-                                <button onclick="rinominaFontana(${el.lat}, ${el.lon})">Rinomina fontana</button>
+                                <button onclick="rinominaFontana(${el.lat}, ${el.lon})">Rename fountain</button>
                                 <br><br>
-                                <button>salva</button>
-                                <button onclick="aggiungiFontana(${el.lat}, ${el.lon})">Aggiungi al Database</button>
+                                <button>Save</button>
+                                <button onclick="aggiungiFontana(${el.lat}, ${el.lon})">Add to DataBase</button>
                             `);
                     }
                 });
