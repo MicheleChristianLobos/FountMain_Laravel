@@ -40,3 +40,7 @@ use App\Http\Controllers\UtenteController;
 Route::get('/utenti', [UtenteController::class, 'index']);
 
 Route::post('/utenti', [UtenteController::class, 'store']);
+
+use App\Http\Controllers\FontanaController;
+
+Route::post('/fontane', [FontanaController::class, 'store']);

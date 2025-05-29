@@ -33,7 +33,7 @@ CREATE TABLE `Fontane` (
   `id` int(11) NOT NULL,
   `nome` varchar(50) NOT NULL,
   `lat` float NOT NULL,
-  `long` float NOT NULL,
+  `lon` float NOT NULL,
   `img` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

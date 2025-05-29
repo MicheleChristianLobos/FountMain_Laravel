@@ -33,6 +33,35 @@ function toggleMapTheme(isLight) {
 }
 
 
+//Per aggiungere la fontana al database
+function aggiungiFontana(lat, lon) {
+    fetch('/FountMain/FountMain/public/fontane', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        },
+        body: JSON.stringify({
+            nome: 'Fontana',
+            lat: lat,
+            lon: lon,
+            img: ''
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'added') {
+            alert('Fontana aggiunta al database!');
+        } else if (data.status === 'already_exists') {
+            alert('Fontana già presente nel database!');
+        } else {
+            alert('Errore: ' + (data.message || 'Impossibile aggiungere la fontana.'));
+        }
+    })
+    .catch(error => alert('Errore di rete: ' + error));
+}
+
+
 //Controlla lo stato del button del tema nella nav bar
 document.getElementById("theme-toggle").addEventListener("click", function() {
     //Se il button per il tema nella nav bar è in light-mode, allora isLight conterrà True
@@ -41,8 +70,12 @@ document.getElementById("theme-toggle").addEventListener("click", function() {
 });
 
 navigator.geolocation.getCurrentPosition(function(position) {
-var lat = position.coords.latitude;
-var lon = position.coords.longitude;
+    
+var lat = 44.8015;
+var lon = 10.3279;
+
+// var lat = position.coords.latitude;
+// var lon = position.coords.longitude;
 
 var raggioKm = 8; // Modifica il raggio di ricerca
 
@@ -81,7 +114,13 @@ fetch(url)
         data.elements.forEach(el => {
             if (el.lat && el.lon) {
                 var marker = L.marker([el.lat, el.lon]).addTo(map)
-                    .bindPopup(`<b>Fountain coords:<br>Lat ${el.lat}<br>Lon ${el.lon}`);
+                //${el.lat}
+                //${el.lon}
+                    .bindPopup(`lat:${el.lat}<br>lon:${el.lon}<br>
+                        <img href=""></img><br><button>modifica img</button>
+                        <br><br>
+                        <button>salva</button>
+                        <button onclick="aggiungiFontana(${el.lat}, ${el.lon})">Aggiungi al Database</button>`);
             }
         });
     })
