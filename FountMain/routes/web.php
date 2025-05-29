@@ -44,3 +44,9 @@ Route::post('/utenti', [UtenteController::class, 'store']);
 use App\Http\Controllers\FontanaController;
 
 Route::post('/fontane', [FontanaController::class, 'store']);
+
+Route::post('/fontane/rinomina', [FontanaController::class, 'rinomina']);
+
+Route::get('/fontane/list', [FontanaController::class, 'list']);
+
+Route::post('/fontane/immagine', [FontanaController::class, 'aggiornaImmagine']);

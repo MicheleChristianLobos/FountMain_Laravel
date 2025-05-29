@@ -62,6 +62,35 @@ function aggiungiFontana(lat, lon) {
 }
 
 
+//Rinomina fontana
+function rinominaFontana(lat, lon) {
+    const nuovoNome = prompt("Inserisci il nuovo nome della fontana:");
+    if (!nuovoNome) return;
+
+    fetch('/FountMain/FountMain/public/fontane/rinomina', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        },
+        body: JSON.stringify({
+            lat: lat,
+            lon: lon,
+            nome: nuovoNome
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'ok') {
+            alert('Fontana rinominata!');
+        } else {
+            alert('Errore: ' + (data.message || 'Impossibile rinominare la fontana.'));
+        }
+    })
+    .catch(error => alert('Errore di rete: ' + error));
+}
+
+
 //Controlla lo stato del button del tema nella nav bar
 document.getElementById("theme-toggle").addEventListener("click", function() {
     //Se il button per il tema nella nav bar è in light-mode, allora isLight conterrà True
@@ -108,21 +137,69 @@ var query = `
 
 var url = "https://overpass-api.de/api/interpreter?data=" + encodeURIComponent(query);
 
-fetch(url)
+fetch('/FountMain/FountMain/public/fontane/list')
     .then(response => response.json())
-    .then(data => {
-        data.elements.forEach(el => {
-            if (el.lat && el.lon) {
-                var marker = L.marker([el.lat, el.lon]).addTo(map)
-                //${el.lat}
-                //${el.lon}
-                    .bindPopup(`lat:${el.lat}<br>lon:${el.lon}<br>
-                        <img href=""></img><br><button>modifica img</button>
-                        <br><br>
-                        <button>salva</button>
-                        <button onclick="aggiungiFontana(${el.lat}, ${el.lon})">Aggiungi al Database</button>`);
+    .then(fontaneDb => {
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                data.elements.forEach(el => {
+                    if (el.lat && el.lon) {
+                        //Arrotondamento delle coordinate (By Copilot) così da non avere problemi di precisione per il confronto
+                        const fontanaDb = fontaneDb.find(f =>
+                            Math.round(f.lat * 1e6) === Math.round(el.lat * 1e6) &&
+                            Math.round(f.lon * 1e6) === Math.round(el.lon * 1e6)
+                        );
+                        //Se il nome della fontana è presente nel database, lo utilizza, altrimenti lascia vuoto
+                        const nomeFontana = fontanaDb ? fontanaDb.nome : '';
+                        L.marker([el.lat, el.lon]).addTo(map)
+                            .bindPopup(`
+                                <b>${nomeFontana}</b><br>
+                                lat:${el.lat}<br>lon:${el.lon}<br>
+                                <img id="img-${el.lat}-${el.lon}" src="${fontanaDb && fontanaDb.img ? fontanaDb.img : 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Fontana_022.jpg/500px-Fontana_022.jpg'}" style="width:100%;"><br>
+                                <input type="file" accept="image/*" onchange="caricaImmagine(event, ${el.lat}, ${el.lon})"><br>
+                                <button onclick="rinominaFontana(${el.lat}, ${el.lon})">Rinomina fontana</button>
+                                <br><br>
+                                <button>salva</button>
+                                <button onclick="aggiungiFontana(${el.lat}, ${el.lon})">Aggiungi al Database</button>
+                            `);
+                    }
+                });
+            });
+    });
+})
+
+function caricaImmagine(event, lat, lon) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        // Mostra subito l'immagine nel popup
+        document.getElementById(`img-${lat}-${lon}`).src = e.target.result;
+
+        // Invia l'immagine al backend (come base64)
+        fetch('/FountMain/FountMain/public/fontane/immagine', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: JSON.stringify({
+                lat: lat,
+                lon: lon,
+                img: e.target.result // base64
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'ok') {
+                alert('Immagine aggiornata!');
+            } else {
+                alert('Errore: ' + (data.message || 'Impossibile aggiornare l\'immagine.'));
             }
-        });
-    })
-    .catch(error => console.error("Errore nel caricamento dei dati:", error));
-});
+        })
+        .catch(error => alert('Errore di rete: ' + error));
+    };
+    reader.readAsDataURL(file);
+}
